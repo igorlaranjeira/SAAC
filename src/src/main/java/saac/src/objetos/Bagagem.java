@@ -1,6 +1,5 @@
 package saac.src.objetos;
 
-
 public class Bagagem {
 	public String RelacaoPassageiro;
 	public float Peso;
