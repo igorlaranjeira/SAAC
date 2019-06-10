@@ -1,4 +1,4 @@
-
+package Objetos;
 public class Aeronave {
 	public int IdAeronave;
 	public String ModAeronave;

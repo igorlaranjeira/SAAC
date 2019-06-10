@@ -1,4 +1,4 @@
-
+package Objetos;
 public class Compania {
 	public String NomeCompania;
 	public int IdentificadorCompania;
