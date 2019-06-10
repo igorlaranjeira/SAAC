@@ -1,7 +1,7 @@
 package Objetos;
 public class Compania {
-	public String NomeCompania;
-	public int IdentificadorCompania;
+	private String NomeCompania;
+	private int IdentificadorCompania;
 	
 	public Compania(String nomeCompania, int identificadorCompania) {
 		super();

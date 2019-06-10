@@ -2,14 +2,14 @@ package Objetos;
 
 
 public class Passaporte {
-	public String NomePassageiro;
-	public Integer NumeroPassaporte;
-	public Integer PaisesVisto;
-	public String NacionalidadePassageiro;
-	public boolean PassaportPiloto;
-	public String NomePiloto;
-	public Integer NumeroPiloto;
-	public Integer PaisVistoPiloto;
+	private String NomePassageiro;
+	private Integer NumeroPassaporte;
+	private Integer PaisesVisto;
+	private String NacionalidadePassageiro;
+	private boolean PassaportPiloto;
+	private String NomePiloto;
+	private Integer NumeroPiloto;
+	private Integer PaisVistoPiloto;
 	
 	
 	public Passaporte(String nomePassageiro, Integer numeroPassaporte, Integer paisesVisto, String nacionalidadePassageiro,

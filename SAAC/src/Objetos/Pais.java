@@ -2,9 +2,9 @@ package Objetos;
 
 
 public class Pais {
-	public String NomePais;
-	public Integer PaisVisto;
-	public boolean PessoAccept;
+	private String NomePais;
+	private Integer PaisVisto;
+	private boolean PessoAccept;
 	
 	public Pais(String nomePais, Integer paisVisto, boolean pessoAccept) {
 		super();

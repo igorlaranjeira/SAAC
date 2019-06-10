@@ -2,12 +2,12 @@ package Objetos;
 import java.sql.Date;
 
 public class Comissario {
-	public	String	passaporteComi;
-	public	String	nomeComissario;
-	public	Date	dataNascComissario;
+	private	String	passaporteComi;
+	private	String	nomeComissario;
+	private	Date	dataNascComissario;
 	private Boolean vistoComissario;
-	public	String	idComissario;
-	public	String	cpfComissario;
+	private	String	idComissario;
+	private	String	cpfComissario;
 	
 	public Comissario() {
 		return;

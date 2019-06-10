@@ -1,19 +1,19 @@
 package Objetos;
 public class Aeronave {
-	public int IdAeronave;
-	public String ModAeronave;
-	public double EnvAeronave;
-	public double ConAeronave;
-	public double BasAeronave;
-	public double BitAeronave;
-	public int MotoAeronave;
-	public double PaxAeronave;
-	public double PmdAeronave;
-	public double PmaAeronave;
-	public double PovAeronave;
-	public double PzcAeronave;
-	public double CbpAeronave;
-	public Aeronave(int idAeronave, String modAeronave, double envAeronave, double conAeronave, double basAeronave,
+	private int IdAeronave;
+	private String ModAeronave;
+	private double EnvAeronave;
+	private double ConAeronave;
+	private double BasAeronave;
+	private double BitAeronave;
+	private int MotoAeronave;
+	private double PaxAeronave;
+	private double PmdAeronave;
+	private double PmaAeronave;
+	private double PovAeronave;
+	private double PzcAeronave;
+	private double CbpAeronave;
+	private Aeronave(int idAeronave, String modAeronave, double envAeronave, double conAeronave, double basAeronave,
 			double bitAeronave, int motoAeronave, double paxAeronave, double pmdAeronave, double pmaAeronave,
 			double povAeronave, double pzcAeronave, double cbpAeronave) {
 		super();

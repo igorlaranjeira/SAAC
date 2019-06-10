@@ -1,8 +1,12 @@
-
+package Objetos;
 public class Nacionalidade {
 	
-	public String nacionalidade;
-	public int Pais;
+	private String nacionalidade;
+	private int Pais;
+	
+	public Nacionalidade() {
+		super();
+	}
 	
 	public String getNacionalidade() {
 		return nacionalidade;

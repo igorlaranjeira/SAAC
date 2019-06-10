@@ -2,12 +2,12 @@ package Objetos;
 import java.sql.Date;
 
 public class Passageiro {
-	public	String	passaporte;
-	public	String	nomePassageiro;
-	public	Date	dataNascimento;
+	private	String	passaporte;
+	private	String	nomePassageiro;
+	private	Date	dataNascimento;
 	private Boolean visto;
-	public	String	cpf;
-	public	String	identidade;
+	private	String	cpf;
+	private	String	identidade;
 	
 	public Passageiro() {
 		return;

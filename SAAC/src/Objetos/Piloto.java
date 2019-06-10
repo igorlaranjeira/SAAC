@@ -3,12 +3,12 @@ import java.sql.Date;
 
 public class Piloto {
 
-	public	String	passaportePiloto;
-	public	String	nomePiloto;
-	public	Date	dataNascPiloto;
+	private	String	passaportePiloto;
+	private	String	nomePiloto;
+	private	Date	dataNascPiloto;
 	private Boolean vistoPiloto;
-	public	String	identidadePiloto;
-	public	String	cpfPiloto;
+	private	String	identidadePiloto;
+	private	String	cpfPiloto;
 	
 	public Piloto() {
 		return;

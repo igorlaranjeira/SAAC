@@ -1,11 +1,11 @@
 package Objetos;
 
 public class Aeroporto {
-	public int idAeroporto;
-	public String nome;
-	public float tanhoPista;
-	public float alturaPista;
-	public int pais;
+	private int idAeroporto;
+	private String nome;
+	private float tanhoPista;
+	private float alturaPista;
+	private int pais;
 	
 	public Aeroporto() {
 		super();

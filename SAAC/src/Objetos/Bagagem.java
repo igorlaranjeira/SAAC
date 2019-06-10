@@ -1,13 +1,13 @@
 package Objetos;
 
 public class Bagagem {
-	public String RelacaoPassageiro;
-	public float Peso;
-	public String NomePassageiro;
-	public boolean BagagemMao;
-	public Integer LocalDespacho;
-	public Integer LocalRecebimento;
-	public boolean Despachada;
+	private String RelacaoPassageiro;
+	private float Peso;
+	private String NomePassageiro;
+	private boolean BagagemMao;
+	private Integer LocalDespacho;
+	private Integer LocalRecebimento;
+	private boolean Despachada;
 	
 	public Bagagem(String relacaoPassageiro, float peso, String nomePassageiro, boolean bagagemMao,
 			Integer localDespacho, Integer localRecebimento, boolean despachada) {
