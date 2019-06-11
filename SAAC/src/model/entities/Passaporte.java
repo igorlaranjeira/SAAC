@@ -1,7 +1,10 @@
-package Objetos;
+package model.entities;
 
+import java.io.Serializable;
 
-public class Passaporte {
+public class Passaporte implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	private String NomePassageiro;
 	private Integer NumeroPassaporte;
 	private Integer PaisesVisto;
@@ -10,7 +13,10 @@ public class Passaporte {
 	private String NomePiloto;
 	private Integer NumeroPiloto;
 	private Integer PaisVistoPiloto;
+	private int idPassaporte;
 	
+	public Passaporte() {
+	}
 	
 	public Passaporte(String nomePassageiro, Integer numeroPassaporte, Integer paisesVisto, String nacionalidadePassageiro,
 			boolean passaportPiloto, String nomePiloto, Integer numeroPiloto, Integer paisVistoPiloto) {
@@ -71,6 +77,36 @@ public class Passaporte {
 	}
 	public void setPaisVistoPiloto(Integer paisVistoPiloto) {
 		PaisVistoPiloto = paisVistoPiloto;
+	}
+
+	public int getIdPassaporte() {
+		return idPassaporte;
+	}
+
+	public void setIdPassaporte(int idPassaporte) {
+		this.idPassaporte = idPassaporte;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idPassaporte;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Passaporte other = (Passaporte) obj;
+		if (idPassaporte != other.idPassaporte)
+			return false;
+		return true;
 	}
 	
 	

@@ -1,6 +1,11 @@
-package Objetos;
+package model.entities;
 
-public class Bagagem {
+import java.io.Serializable;
+
+public class Bagagem implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	private int identicidaorBagagem;
 	private String RelacaoPassageiro;
 	private float Peso;
 	private String NomePassageiro;
@@ -8,6 +13,9 @@ public class Bagagem {
 	private Integer LocalDespacho;
 	private Integer LocalRecebimento;
 	private boolean Despachada;
+	
+	public Bagagem() {
+	}
 	
 	public Bagagem(String relacaoPassageiro, float peso, String nomePassageiro, boolean bagagemMao,
 			Integer localDespacho, Integer localRecebimento, boolean despachada) {
@@ -62,6 +70,36 @@ public class Bagagem {
 	}
 	public void setDespachada(boolean despachada) {
 		Despachada = despachada;
+	}
+
+	public int getIdenticidaorBagagem() {
+		return identicidaorBagagem;
+	}
+
+	public void setIdenticidaorBagagem(int identicidaorBagagem) {
+		this.identicidaorBagagem = identicidaorBagagem;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + identicidaorBagagem;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Bagagem other = (Bagagem) obj;
+		if (identicidaorBagagem != other.identicidaorBagagem)
+			return false;
+		return true;
 	}
 	
 	

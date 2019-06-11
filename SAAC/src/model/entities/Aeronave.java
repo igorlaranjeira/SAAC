@@ -1,5 +1,10 @@
-package Objetos;
-public class Aeronave {
+package model.entities;
+
+import java.io.Serializable;
+
+public class Aeronave implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	private int IdAeronave;
 	private String ModAeronave;
 	private double EnvAeronave;
@@ -13,7 +18,11 @@ public class Aeronave {
 	private double PovAeronave;
 	private double PzcAeronave;
 	private double CbpAeronave;
-	private Aeronave(int idAeronave, String modAeronave, double envAeronave, double conAeronave, double basAeronave,
+	
+	public Aeronave() {}
+	
+	
+	public Aeronave(int idAeronave, String modAeronave, double envAeronave, double conAeronave, double basAeronave,
 			double bitAeronave, int motoAeronave, double paxAeronave, double pmdAeronave, double pmaAeronave,
 			double povAeronave, double pzcAeronave, double cbpAeronave) {
 		super();
@@ -31,6 +40,7 @@ public class Aeronave {
 		PzcAeronave = pzcAeronave;
 		CbpAeronave = cbpAeronave;
 	}
+	
 	public int getIdAeronave() {
 		return IdAeronave;
 	}
@@ -108,6 +118,30 @@ public class Aeronave {
 	}
 	public void setCbpAeronave(double cbpAeronave) {
 		CbpAeronave = cbpAeronave;
+	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + IdAeronave;
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Aeronave other = (Aeronave) obj;
+		if (IdAeronave != other.IdAeronave)
+			return false;
+		return true;
 	}
 	
 	

@@ -1,8 +1,10 @@
 package db;
 
+import java.beans.Statement;
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -44,6 +46,25 @@ public class DB {
 		} catch (Exception e) {
 			throw new DbExcepption(e.getMessage());
 			
+		}
+	}
+	public static void closeStatement (java.sql.Statement st) {
+		if (st != null) {
+			try {
+				st.close();
+			} catch (SQLException e) {
+				throw new DbExcepption(e.getMessage());
+			}
+		}
+	}
+	
+	public static void closeResultSet (ResultSet rs) {
+		if (rs != null) {
+			try {
+				rs.close();
+			} catch (SQLException e) {
+				throw new DbExcepption(e.getMessage());
+			}
 		}
 	}
 }
