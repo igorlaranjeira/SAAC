@@ -18,13 +18,16 @@ public class Aeronave implements Serializable {
 	private double PovAeronave;
 	private double PzcAeronave;
 	private double CbpAeronave;
+	private double companiaAero;
 	
 	public Aeronave() {}
 	
 	
+	
+	
 	public Aeronave(int idAeronave, String modAeronave, double envAeronave, double conAeronave, double basAeronave,
 			double bitAeronave, int motoAeronave, double paxAeronave, double pmdAeronave, double pmaAeronave,
-			double povAeronave, double pzcAeronave, double cbpAeronave) {
+			double povAeronave, double pzcAeronave, double cbpAeronave, double companiaAero) {
 		super();
 		IdAeronave = idAeronave;
 		ModAeronave = modAeronave;
@@ -39,8 +42,12 @@ public class Aeronave implements Serializable {
 		PovAeronave = povAeronave;
 		PzcAeronave = pzcAeronave;
 		CbpAeronave = cbpAeronave;
+		this.companiaAero = companiaAero;
 	}
-	
+
+
+
+
 	public int getIdAeronave() {
 		return IdAeronave;
 	}
@@ -142,6 +149,16 @@ public class Aeronave implements Serializable {
 		if (IdAeronave != other.IdAeronave)
 			return false;
 		return true;
+	}
+
+
+	public double getCompaniaAero() {
+		return companiaAero;
+	}
+
+
+	public void setCompaniaAero(double companiaAero) {
+		this.companiaAero = companiaAero;
 	}
 	
 	
