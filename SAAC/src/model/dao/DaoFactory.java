@@ -1,5 +1,6 @@
 package model.dao;
 
+import db.DB;
 import model.dao.impl.AeronaveDaoJDBC;
 import model.dao.impl.AeroportoDaoJDBC;
 import model.dao.impl.BagagemDaoJDBC;
@@ -16,15 +17,15 @@ import model.dao.impl.VistoDaoJDBC;
 
 public class DaoFactory {
 	public static AeronaveDao createAeronaveDao() {
-		return new AeronaveDaoJDBC();
+		return new AeronaveDaoJDBC(DB.getConnection());
 	}
 	
 	public static AeroportoDao createAeroportoDao() {
-		return new AeroportoDaoJDBC();
+		return new AeroportoDaoJDBC(DB.getConnection());
 	}
 	
 	public static BagagemDao createBagagemDao() {
-		return new BagagemDaoJDBC();
+		return new BagagemDaoJDBC(DB.getConnection());
 	}
 	
 	public static ComissarioDao createComissarioDao() {

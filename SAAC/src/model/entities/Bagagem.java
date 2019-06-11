@@ -8,7 +8,7 @@ public class Bagagem implements Serializable{
 	private int identicidaorBagagem;
 	private String RelacaoPassageiro;
 	private float Peso;
-	private String NomePassageiro;
+	private int NomePassageiro;
 	private boolean BagagemMao;
 	private Integer LocalDespacho;
 	private Integer LocalRecebimento;
@@ -17,18 +17,23 @@ public class Bagagem implements Serializable{
 	public Bagagem() {
 	}
 	
-	public Bagagem(String relacaoPassageiro, float peso, String nomePassageiro, boolean bagagemMao,
-			Integer localDespacho, Integer localRecebimento, boolean despachada) {
+	
+	
+	public Bagagem(int identicidaorBagagem, String relacaoPassageiro, float peso, int nomePassageiro,
+			boolean bagagemMao, Integer localDespacho, Integer localRecebimento, boolean despachada) {
 		super();
+		this.identicidaorBagagem = identicidaorBagagem;
 		RelacaoPassageiro = relacaoPassageiro;
 		Peso = peso;
-		NomePassageiro = nomePassageiro;
+		setNomePassageiro(nomePassageiro);
 		BagagemMao = bagagemMao;
 		LocalDespacho = localDespacho;
 		LocalRecebimento = localRecebimento;
 		Despachada = despachada;
 	}
-	
+
+
+
 	public String getRelacaoPassageiro() {
 		return RelacaoPassageiro;
 	}
@@ -41,12 +46,7 @@ public class Bagagem implements Serializable{
 	public void setPeso(float peso) {
 		Peso = peso;
 	}
-	public String getNomePassageiro() {
-		return NomePassageiro;
-	}
-	public void setNomePassageiro(String nomePassageiro) {
-		NomePassageiro = nomePassageiro;
-	}
+	
 	public boolean isBagagemMao() {
 		return BagagemMao;
 	}
@@ -100,6 +100,18 @@ public class Bagagem implements Serializable{
 		if (identicidaorBagagem != other.identicidaorBagagem)
 			return false;
 		return true;
+	}
+
+
+
+	public int getNomePassageiro() {
+		return NomePassageiro;
+	}
+
+
+
+	public void setNomePassageiro(int nomePassageiro) {
+		NomePassageiro = nomePassageiro;
 	}
 	
 	

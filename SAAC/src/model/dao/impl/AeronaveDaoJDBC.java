@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import db.DB;
+import db.DbExcepption;
 import model.dao.AeronaveDao;
 import model.entities.Aeronave;
 
@@ -61,18 +63,19 @@ public class AeronaveDaoJDBC implements AeronaveDao{
 				aero.setPovAeronave(rs.getFloat("pov_aero"));
 				aero.setPzcAeronave(rs.getFloat("pzc_aero"));
 				aero.setCbpAeronave(rs.getFloat("cbp_aero"));
-				
-				
-				
-				
-				
+				return aero;
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			throw new DbExcepption(e.getMessage());
+		}
+		finally {
+			DB.closeStatement(st);
+			DB.closeResultSet(rs);
 		}
 		return null;
 	}
-
+	
+	
 	@Override
 	public List<Aeronave> findAll() {
 		// TODO Auto-generated method stub

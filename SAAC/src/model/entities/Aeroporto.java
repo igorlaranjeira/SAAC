@@ -11,6 +11,7 @@ public class Aeroporto implements Serializable{
 	private float alturaPista;
 	private int pais;
 	
+	
 	public Aeroporto() {
 		super();
 		
