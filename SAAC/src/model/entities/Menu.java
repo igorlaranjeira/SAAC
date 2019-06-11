@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import db.DB;
+import model.dao.AeronaveDao;
+import model.dao.DaoFactory;
 
 
 
@@ -34,6 +36,7 @@ public class Menu {
 			DB.closeResultSet(rs);
 			DB.closeConnection();
 		}
+		AeronaveDao aaa = DaoFactory.createAeronaveDao();
     }	
 		
 
