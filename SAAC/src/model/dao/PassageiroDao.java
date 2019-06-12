@@ -11,4 +11,5 @@ public interface PassageiroDao {
 	Passageiro findById(Integer Id);
 	List<Passageiro> findAll();
 	void achar();
+	void achar(String x1);
 }

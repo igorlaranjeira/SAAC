@@ -9,7 +9,6 @@ import java.util.List;
 import db.DB;
 import db.DbExcepption;
 import model.dao.BagagemDao;
-import model.entities.Aeronave;
 import model.entities.Bagagem;
 
 public class BagagemDaoJDBC implements BagagemDao{

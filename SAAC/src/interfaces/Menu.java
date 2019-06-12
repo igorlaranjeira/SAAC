@@ -6,9 +6,7 @@ import db.DB;
 import model.dao.AeronaveDao;
 import model.dao.AeroportoDao;
 import model.dao.DaoFactory;
-import model.dao.impl.AeronaveDaoJDBC;
-import model.entities.Aeronave;
-import model.entities.Aeroporto;
+import model.dao.PassageiroDao;
 
 public interface Menu {
 
@@ -91,7 +89,34 @@ public static void IniciarMenu() {
 	}
 
 	public static void BuscaPassageiro() {
-		// TODO Auto-generated method stub
+		Scanner ab = new Scanner(System.in);
+		System.out.println("Digite o numero do que deseja fazer no programa:\n\n" + 
+			 	"[1]Pesquisar por nome.\n" + 
+				"[2]Pesquisar por cpf.\n" + 
+			 	"[3]Pesquivar por passaporte \n"); 
+		System.out.print("\nSelecione um numero: ");
+		try {
+			int res = ab.nextInt();
+			if (res == 1) {
+				System.out.print("Digite o noome do passageiro: ");
+				String nome = ab.next().toUpperCase();
+				System.out.println("RESULTADO: \n\n");
+				PassageiroDao passageiro = DaoFactory.createPassageiroDao();
+				passageiro.achar(nome);
+				voltarMenu();
+			}
+			else if(res == 2) {
+				
+			}
+			else if(res == 3) {
+				
+			}
+			else {
+				System.out.println("dados errados inseridos");
+			}
+		} catch (Exception e) {
+			e.fillInStackTrace();
+		}
 		
 	}
 

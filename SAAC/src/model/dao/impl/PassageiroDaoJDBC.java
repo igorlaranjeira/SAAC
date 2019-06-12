@@ -48,34 +48,31 @@ public class PassageiroDaoJDBC implements PassageiroDao{
 	}
 
 	@Override
-	public void achar() {
+	public void achar(String x1) {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
-			st = conn.prepareStatement("select *\r\n" + 
-					"from aeronave as a1 \r\n" + 
-					"inner join aeronave_pesos as a2\r\n" + 
-					"on a1.id_aero = a2.id_aero2\r\n" + 
-					"join compania as a3\r\n" + 
-					"on a1.comp_aero = a3.id_compa ");
+			st = conn.prepareStatement("select a1.id_pass,a1.nm_passag,a1.dt_nasc,a1.cpf,a2.nu_passaport,a3.nm_pais,a4.nm_visto\r\n" + 
+					"from passageiro as a1\r\n" + 
+					"join passaporte as a2\r\n" + 
+					"on a1.pass_passaporte = a2.id_passaport\r\n" + 
+					"join pais as a3\r\n" + 
+					"on a1.pas_nascio = a3.id_pais\r\n" + 
+					"join visto as a4\r\n" + 
+					"on a1.pas_visto = a4.id_visto" + 
+					"where a1.nm_passag LIKE '"+x1+"%'");
 			
 			rs = st.executeQuery();
 			
 			while (rs.next()) {	
 				System.out.println(
-					"Numero: "+rs.getInt("id_aero")+"||"+
-					"Modelo: "+rs.getString("mod_aero")+"||"+
-					"Envergadura: "+rs.getFloat("env_aero")+"||"+
-					"comprimento: "+rs.getFloat("con_aero")+"||"+
-					"Base: "+rs.getFloat("bas_aero")+"||"+
-					"Motor: "+rs.getInt("moto_aero")+"||"+
-					"Carga Paga: "+rs.getFloat("pax_aero")+"||"+
-					"Compania: "+rs.getString("nm_compa")+"||"+
-					"Peso Medio Decolagem: "+rs.getFloat("pmd_aero")+"||"+
-					"Peso Medio Aterrissagem: "+rs.getFloat("pma_aero")+"||"+
-					"Peso operacional vazio: "+rs.getFloat("pov_aero")+"||"+
-					"Peso sem combustivel: "+rs.getFloat("pzc_aero")+"||"+
-					"Comprimento B/ Pista: "+rs.getFloat("cbp_aero")+"\n"
+					"Numero: "+rs.getInt("id_pass")+"||"+
+					"Nome: "+rs.getString("nm_passag")+"||"+
+					"Data Nascimento: "+rs.getDate("dt_nasc")+"||"+
+					"CPF: "+rs.getString("cpf")+"||"+
+					"Passaporte: "+rs.getString("nu_passaport")+"||"+
+					"Nacionalidade: "+rs.getString("nm_pais")+"||"+
+					"Visto: "+rs.getFloat("nm_visto")+"||"+"\n"
 					);
 				}
 		} catch (SQLException e1) {
@@ -85,6 +82,12 @@ public class PassageiroDaoJDBC implements PassageiroDao{
 			DB.closeStatement(st);
 			DB.closeResultSet(rs);
 		}
+	}
+
+	@Override
+	public void achar() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
