@@ -1,11 +1,16 @@
-package model.dao.impl;
+package interfaces;
 
-import model.dao.impl.*;
 import java.util.Scanner;
 
-public class Menu {
-	public static void main (String[] args) {
-		
+import db.DB;
+import model.dao.AeronaveDao;
+import model.dao.DaoFactory;
+import model.dao.impl.AeronaveDaoJDBC;
+import model.entities.Aeronave;
+
+public interface Menu {
+
+public static void IniciarMenu() {
 		Scanner a = new Scanner(System.in);
 		
 		System.out.println(" ____________________________________________________________\r\n" + 
@@ -27,63 +32,74 @@ public class Menu {
 						 	"[3]Passageiros\n" + 
 							"[4]Rota de Voo\n" + 
 						 	"[5]Analise de Rota");
-		int nmenu = a.nextInt();
+		System.out.print("\nSelecione um numero: ");
 		
-		switch (nmenu) {
-			case 1:
+		try {
+			int nmenu = a.nextInt();
+			
+			if (nmenu == 1) {
 				CatalogoAeronaves();
-			case 2:
+			}
+			else if(nmenu == 2) {
 				CatalogoAeroportos();
-			case 3:
+			}
+			else if (nmenu == 3) {
 				System.out.print("\n\n[1]Buscar Passageiros\n[2]Criar novo Passageiro\n");
 				int pass = a.nextInt();
-				
-				switch (pass) {
-					case 1:
-						BuscaPassageiro();
-					case 2:
-						AddPassageiro();
-					default:
-						System.out.print("Numero Invalido");
+				if (pass == 1) {	
+					BuscaPassageiro();
+				}	
+				else if(pass == 2) {
+					AddPassageiro();
 				}
-			case 4:
+				else {		
+					System.out.print("Numero Invalido");
+				}
+			}	
+			else if(nmenu == 3) {
 				RotaVoo();
-			case 5:
+			}
+			else if(nmenu == 5) {
 				AnaliseRota();
-			default:
+			}
+			else {
 				System.out.print("Numero Invalido");
+			}
+			a.close();
+		}catch (Exception e) {
+			IniciarMenu();
 		}
-		a.close();
-	}
+}
 
-	private static void AnaliseRota() {
+	public static void AnaliseRota() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private static void RotaVoo() {
+	public static void RotaVoo() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private static void AddPassageiro() {
+	public static void AddPassageiro() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private static void BuscaPassageiro() {
+	public static void BuscaPassageiro() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private static void CatalogoAeroportos() {
+	public static void CatalogoAeroportos() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private static void CatalogoAeronaves() {
-		// TODO Auto-generated method stub
-		AeronaveDaoJDBC.findAll();
+	public static void CatalogoAeronaves() {
+		AeronaveDao aeronave = DaoFactory.createAeronaveDao();
+		Aeronave aero = aeronave.findById(2);
+		System.out.println(aero);
 	}
 
 }
