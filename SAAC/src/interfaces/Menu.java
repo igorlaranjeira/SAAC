@@ -2,11 +2,13 @@ package interfaces;
 
 import java.util.Scanner;
 
-import db.DB;
 import model.dao.AeronaveDao;
+import model.dao.AeroportoDao;
 import model.dao.DaoFactory;
-import model.dao.impl.AeronaveDaoJDBC;
+import model.dao.PassageiroDao;
 import model.entities.Aeronave;
+import model.entities.Aeroporto;
+import model.entities.Passageiro;
 
 public interface Menu {
 
@@ -87,19 +89,26 @@ public static void IniciarMenu() {
 	}
 
 	public static void BuscaPassageiro() {
-		// TODO Auto-generated method stub
-		
+		Scanner b = new Scanner(System.in);
+		PassageiroDao passageiro = DaoFactory.createPassageiroDao();
+		System.out.println("Insira o id do passageiro");
+		int id = b.nextInt();
+		Passageiro pas = passageiro.findById(id);
+		System.out.print(pas);
+		b.close();
 	}
 
 	public static void CatalogoAeroportos() {
-		// TODO Auto-generated method stub
+		AeroportoDao aeroporto = DaoFactory.createAeroportoDao();
+		Aeroporto aerop = aeroporto.findById(2);
+		System.out.print(aerop);
 		
 	}
 
 	public static void CatalogoAeronaves() {
 		AeronaveDao aeronave = DaoFactory.createAeronaveDao();
 		Aeronave aero = aeronave.findById(2);
-		System.out.println(aero);
+		System.out.print(aero);
 	}
 
 }
