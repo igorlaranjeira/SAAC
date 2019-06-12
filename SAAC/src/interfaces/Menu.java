@@ -67,6 +67,7 @@ public static void IniciarMenu() {
 			}
 			else if(nmenu == 6) {
 				System.exit(0);
+			}
 			else {
 				System.out.print("Numero Invalido");
 			}
@@ -99,6 +100,8 @@ public static void IniciarMenu() {
 		System.out.print("Visto: ");
 		String visto = np.next();
 		np.close();
+		PassageiroDao passageiro = DaoFactory.createPassageiroDao();
+		passageiro.insert(nome,cpf,passaporte,passaporte);
 		voltarMenu();
 		//Adicionar passageiro ao banco
 	}
@@ -114,7 +117,7 @@ public static void IniciarMenu() {
 			int res = ab.nextInt();
 			if (res == 1) {
 				System.out.print("Digite o nome do passageiro: ");
-				String nome = ab.next().toUpperCase();
+				String nome = ab.next();
 				System.out.println("RESULTADO: \n\n");
 				PassageiroDao passageiro = DaoFactory.createPassageiroDao();
 				passageiro.achar(nome);
@@ -122,7 +125,7 @@ public static void IniciarMenu() {
 			}
 			else if(res == 2) {
 				System.out.print("Digite o cpf do passageiro: ");
-				String cpf = ab.next().toUpperCase();
+				String cpf = ab.next();
 				System.out.println("RESULTADO: \n\n");
 				PassageiroDao passageiro = DaoFactory.createPassageiroDao();
 				passageiro.achar(cpf);
@@ -130,7 +133,7 @@ public static void IniciarMenu() {
 			}
 			else if(res == 3) {
 				System.out.print("Digite o passaporte do passageiro: ");
-				String passaporte = ab.next().toUpperCase();
+				String passaporte = ab.next();
 				System.out.println("RESULTADO: \n\n");
 				PassageiroDao passageiro = DaoFactory.createPassageiroDao();
 				passageiro.achar(passaporte);

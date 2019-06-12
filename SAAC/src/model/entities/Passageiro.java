@@ -12,14 +12,18 @@ public class Passageiro implements Serializable{
 	private	String	cpf;
 	private	String	identidade;
 	private int idPassageiro;
+	private int nacionalidade;
 	
 	public Passageiro() {
 		return;
 	}
 	
 	
+	
+
+
 	public Passageiro(String passaporte, String nomePassageiro, Date dataNascimento, Boolean visto, String cpf,
-			String identidade, int idPassageiro) {
+			String identidade, int idPassageiro, int nacionalidade) {
 		super();
 		this.passaporte = passaporte;
 		this.nomePassageiro = nomePassageiro;
@@ -28,7 +32,11 @@ public class Passageiro implements Serializable{
 		this.cpf = cpf;
 		this.identidade = identidade;
 		this.idPassageiro = idPassageiro;
+		this.nacionalidade = nacionalidade;
 	}
+
+
+
 
 
 	public String getPassaporte() {
@@ -88,6 +96,16 @@ public class Passageiro implements Serializable{
 		if (idPassageiro != other.idPassageiro)
 			return false;
 		return true;
+	}
+
+
+	public int getNacionalidade() {
+		return nacionalidade;
+	}
+
+
+	public void setNacionalidade(int nacionalidade) {
+		this.nacionalidade = nacionalidade;
 	}
 	
 }

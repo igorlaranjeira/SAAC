@@ -1,5 +1,6 @@
 package model.dao.impl;
 
+import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,10 +20,21 @@ public class PassageiroDaoJDBC implements PassageiroDao{
 
 	@Override
 	public void insert(Passageiro obj) {
-		// TODO Auto-generated method stub
-		
-	}
+		PreparedStatement st = null;
+		try {
+			st = conn.prepareStatement("insert into passageiro (nm_passag,cpf,pas_nascio,pass_passaporte,dt_nasc) "
+					+ "values(?,?,?,?,?)",
+					Statement.RETURN_GENERATED_KEYS);
+			st.setString(1, obj.getNomePassageiro());
+			st.setString(2, obj.getCpf());
+			st.setInt(3, obj.getNacionalidade());
+			st.setInt(4, obj.getPassaporte());
+			st.setDate(5,new java.sql.Date(obj.getDataNascimento().getTime()));
 
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
 	@Override
 	public void update(Passageiro obj) {
 		// TODO Auto-generated method stub
@@ -48,7 +60,7 @@ public class PassageiroDaoJDBC implements PassageiroDao{
 	}
 
 	@Override
-	public void achar(String x1) {
+	public Passageiro achar(String x1) {
 		PreparedStatement st = null;
 		ResultSet rs = null;
 		try {
@@ -60,7 +72,8 @@ public class PassageiroDaoJDBC implements PassageiroDao{
 					"on a1.pas_nascio = a3.id_pais\r\n" + 
 					"join visto as a4\r\n" + 
 					"on a1.pas_visto = a4.id_visto" + 
-					"where a1.nm_passag LIKE '"+x1+"%'");
+					"where a1.nm_passag LIKE '?%'");
+			st.setString(1, x1);
 			
 			rs = st.executeQuery();
 			
@@ -82,6 +95,7 @@ public class PassageiroDaoJDBC implements PassageiroDao{
 			DB.closeStatement(st);
 			DB.closeResultSet(rs);
 		}
+		return null;
 	}
 
 	@Override
