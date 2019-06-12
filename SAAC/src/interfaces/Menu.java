@@ -87,8 +87,20 @@ public static void IniciarMenu() {
 	}
 
 	public static void AddPassageiro() {
-		// TODO Auto-generated method stub
-		
+		Scanner np = new Scanner(System.in);
+		System.out.print("Nome Completo: ");
+		String nome = np.next();
+		System.out.print("Numero de Identidade: ");
+		String identdade = np.next();
+		System.out.print("Numero CPF: ");
+		String cpf = np.next();
+		System.out.print("Passaporte: ");
+		String passaporte = np.next();
+		System.out.print("Visto: ");
+		String visto = np.next();
+		np.close();
+		voltarMenu();
+		//Adicionar passageiro ao banco
 	}
 
 	public static void BuscaPassageiro() {
@@ -96,12 +108,12 @@ public static void IniciarMenu() {
 		System.out.println("Digite o numero do que deseja fazer no programa:\n\n" + 
 			 	"[1]Pesquisar por nome.\n" + 
 				"[2]Pesquisar por cpf.\n" + 
-			 	"[3]Pesquivar por passaporte \n"); 
+			 	"[3]Pesquivar por passaporte.\n"); 
 		System.out.print("\nSelecione um numero: ");
 		try {
 			int res = ab.nextInt();
 			if (res == 1) {
-				System.out.print("Digite o noome do passageiro: ");
+				System.out.print("Digite o nome do passageiro: ");
 				String nome = ab.next().toUpperCase();
 				System.out.println("RESULTADO: \n\n");
 				PassageiroDao passageiro = DaoFactory.createPassageiroDao();
@@ -125,7 +137,7 @@ public static void IniciarMenu() {
 				voltarMenu();
 			}
 			else {
-				System.out.println("dados errados inseridos");
+				System.out.println("Dados errados inseridos.");
 			}
 		} catch (Exception e) {
 			e.fillInStackTrace();
@@ -134,6 +146,7 @@ public static void IniciarMenu() {
 	}
 
 	public static void CatalogoAeroportos() {
+		System.out.println("\n\nCatalogo Completo:\n\n");
 		AeroportoDao aeroporto = DaoFactory.createAeroportoDao();
 		aeroporto.findTudo();
 		voltarMenu();
