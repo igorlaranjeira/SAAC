@@ -10,5 +10,6 @@ public interface AeroportoDao {
 	void deleteById(Aeroporto id);
 	Aeroporto findById(Integer Id);
 	List<Aeroporto> findAll();
+	void findTudo();
 	
 }

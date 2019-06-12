@@ -69,4 +69,33 @@ public class AeroportoDaoJDBC implements AeroportoDao{
 		return null;
 	}
 
+	@Override
+	public void findTudo() {
+		PreparedStatement st = null;
+		ResultSet rs = null;
+		try {
+			st = conn.prepareStatement("select a1.id_aeroport,a1.nm_aeroport,a1.tm_pista,a2.nm_pais\r\n" + 
+					"from aeroporto as a1\r\n" + 
+					"join pais as a2\r\n" + 
+					"on a1.aero_pais = a2.id_pais ");
+			
+			rs = st.executeQuery();
+			
+			while (rs.next()) {	
+				System.out.println(
+					"Numero: "+rs.getInt("id_aeroport")+"||"+
+					"Nome Aeroporto: "+rs.getString("nm_aeroport")+"||"+
+					"Tamanho de pista: "+rs.getFloat("tm_pista")+"||"+
+					"Localizado no pais: "+rs.getString("nm_pais")+"||"+"\n"
+					);
+				}
+		} catch (SQLException e1) {
+			throw new DbExcepption(e1.getMessage());
+		}
+		finally {
+			DB.closeStatement(st);
+			DB.closeResultSet(rs);
+		}
+	}
+
 }

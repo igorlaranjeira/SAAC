@@ -4,13 +4,17 @@ import java.util.Scanner;
 
 import db.DB;
 import model.dao.AeronaveDao;
+import model.dao.AeroportoDao;
 import model.dao.DaoFactory;
 import model.dao.impl.AeronaveDaoJDBC;
 import model.entities.Aeronave;
+import model.entities.Aeroporto;
 
 public interface Menu {
 
 public static void IniciarMenu() {
+	
+	DB.getConnection();
 		Scanner a = new Scanner(System.in);
 		
 		System.out.println(" ____________________________________________________________\r\n" + 
@@ -87,19 +91,39 @@ public static void IniciarMenu() {
 	}
 
 	public static void BuscaPassageiro() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	public static void CatalogoAeroportos() {
-		// TODO Auto-generated method stub
-		
+		AeroportoDao aeroporto = DaoFactory.createAeroportoDao();
+		aeroporto.findTudo();
+		voltarMenu();
 	}
 
 	public static void CatalogoAeronaves() {
+		System.out.println("\n\nCatalogo Completo:\n\n");
 		AeronaveDao aeronave = DaoFactory.createAeronaveDao();
-		Aeronave aero = aeronave.findById(2);
-		System.out.println(aero);
+		aeronave.findTudo();
+		voltarMenu();
+		
+	}
+	public static void voltarMenu() {
+		Scanner a = new Scanner(System.in);
+		System.out.print("Deseja Voltar ao Menu?(Digite 1): ");
+		try {
+			int voltar = a.nextInt();
+			if(voltar == 1) {
+				IniciarMenu();
+			}
+		}catch (Exception e) {
+			e.fillInStackTrace();
+		}
+	}
+	public static void limparLinha() {
+		for(int i=0;i<200;i++) {
+			System.out.println("\n");
+		}
 	}
 
 }
