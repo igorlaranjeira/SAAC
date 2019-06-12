@@ -33,7 +33,8 @@ public static void IniciarMenu() {
 							"[2]Catalogo de Aeroportos\n" + 
 						 	"[3]Passageiros\n" + 
 							"[4]Rota de Voo\n" + 
-						 	"[5]Analise de Rota");
+						 	"[5]Analise de Rota\n" +
+				  			"[6]Sair");
 		System.out.print("\nSelecione um numero: ");
 		
 		try {
@@ -64,6 +65,9 @@ public static void IniciarMenu() {
 			else if(nmenu == 5) {
 				AnaliseRota();
 			}
+			else if(nmenu == 6) {
+				System.exit(0);
+			}
 			else {
 				System.out.print("Numero Invalido");
 			}
@@ -79,23 +83,37 @@ public static void IniciarMenu() {
 	}
 
 	public static void RotaVoo() {
-		// TODO Auto-generated method stub
+		Scanner r = new Scanner(System.in);
+		
+		//Busca de país de origem
+		System.out.println("Digite o local de origem:");
+		String orig = r.nextLine();
+		
+		//busca de país de destino
+		System.out.println("Digite o local de destino:");
+		String dest = r.nextLine();
+		
+		//Busca de aeronave
+		System.out.println("Digite a aeronave utilizada:");
+		String au = r.nextLine();
+		
+		r.close();
 		
 	}
 
 	public static void AddPassageiro() {
-		// TODO Auto-generated method stub
+		// Insert new Passageiro
 		
 	}
 
 	public static void BuscaPassageiro() {
-		Scanner b = new Scanner(System.in);
+		Scanner p = new Scanner(System.in);
 		PassageiroDao passageiro = DaoFactory.createPassageiroDao();
 		System.out.println("Insira o id do passageiro");
-		int id = b.nextInt();
+		int id = p.nextInt();
 		Passageiro pas = passageiro.findById(id);
 		System.out.print(pas);
-		b.close();
+		p.close();
 	}
 
 	public static void CatalogoAeroportos() {
