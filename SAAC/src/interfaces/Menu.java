@@ -33,7 +33,8 @@ public static void IniciarMenu() {
 							"[2]Catalogo de Aeroportos\n" + 
 						 	"[3]Passageiros\n" + 
 							"[4]Rota de Voo\n" + 
-						 	"[5]Analise de Rota");
+						 	"[5]Analise de Rota\n" + 
+				  			"[6]Sair");
 		System.out.print("\nSelecione um numero: ");
 		
 		try {
@@ -58,12 +59,14 @@ public static void IniciarMenu() {
 					System.out.print("Numero Invalido");
 				}
 			}	
-			else if(nmenu == 3) {
+			else if(nmenu == 4) {
 				RotaVoo();
 			}
 			else if(nmenu == 5) {
 				AnaliseRota();
 			}
+			else if(nmenu == 6) {
+				System.exit(0);
 			else {
 				System.out.print("Numero Invalido");
 			}
@@ -106,10 +109,20 @@ public static void IniciarMenu() {
 				voltarMenu();
 			}
 			else if(res == 2) {
-				
+				System.out.print("Digite o cpf do passageiro: ");
+				String cpf = ab.next().toUpperCase();
+				System.out.println("RESULTADO: \n\n");
+				PassageiroDao passageiro = DaoFactory.createPassageiroDao();
+				passageiro.achar(cpf);
+				voltarMenu();
 			}
 			else if(res == 3) {
-				
+				System.out.print("Digite o passaporte do passageiro: ");
+				String passaporte = ab.next().toUpperCase();
+				System.out.println("RESULTADO: \n\n");
+				PassageiroDao passageiro = DaoFactory.createPassageiroDao();
+				passageiro.achar(passaporte);
+				voltarMenu();
 			}
 			else {
 				System.out.println("dados errados inseridos");
